@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlleur.Controleur;
+import modele.Adresse;
 import modele.Employe;
 import modele.ModeleDynamiqueEmploye;
 
@@ -67,7 +68,7 @@ public class VueEmployes extends JFrame {
 		lb_name.setBounds(10, 11, 46, 14);
 
 		txtField_Name = new JTextField();
-		txtField_Name.setBounds(10, 23, 86, 20);
+		txtField_Name.setBounds(10, 23, 132, 20);
 		lb_name.setLabelFor(txtField_Name);
 		txtField_Name.setColumns(10);
 
@@ -75,7 +76,7 @@ public class VueEmployes extends JFrame {
 		lb_prenom.setBounds(10, 54, 46, 14);
 
 		txtField_Prenom = new JTextField();
-		txtField_Prenom.setBounds(10, 65, 86, 20);
+		txtField_Prenom.setBounds(10, 65, 132, 20);
 		lb_prenom.setLabelFor(txtField_Prenom);
 		txtField_Prenom.setColumns(10);
 
@@ -86,7 +87,7 @@ public class VueEmployes extends JFrame {
 		lb_Code.setBounds(10, 197, 46, 14);
 
 		textField_Code = new JTextField();
-		textField_Code.setBounds(10, 211, 86, 20);
+		textField_Code.setBounds(10, 211, 132, 20);
 		lb_Code.setLabelFor(textField_Code);
 		textField_Code.setColumns(10);
 
@@ -94,12 +95,12 @@ public class VueEmployes extends JFrame {
 		lb_Quotite.setBounds(10, 242, 46, 14);
 
 		textField_Quotite = new JTextField();
-		textField_Quotite.setBounds(10, 255, 86, 20);
+		textField_Quotite.setBounds(10, 255, 132, 20);
 		lb_Quotite.setLabelFor(textField_Quotite);
 		textField_Quotite.setColumns(10);
 
 		JButton btnCreate = new JButton("Create");
-		btnCreate.setBounds(23, 623, 86, 23);
+		btnCreate.setBounds(10, 623, 132, 23);
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				formData();
@@ -116,7 +117,7 @@ public class VueEmployes extends JFrame {
 		});
 
 		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(23, 657, 86, 23);
+		btnUpdate.setBounds(10, 657, 132, 23);
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miseAJour();
@@ -135,7 +136,7 @@ public class VueEmployes extends JFrame {
 		lb_Date_Birth.setBounds(10, 154, 98, 14);
 
 		textField_Date_Birth = new JTextField();
-		textField_Date_Birth.setBounds(10, 166, 86, 20);
+		textField_Date_Birth.setBounds(10, 166, 132, 20);
 		lb_Date_Birth.setLabelFor(textField_Date_Birth);
 		textField_Date_Birth.setColumns(10);
 
@@ -143,12 +144,12 @@ public class VueEmployes extends JFrame {
 		lb_Date_Embauche.setBounds(10, 286, 98, 14);
 
 		textField_Date_Embauche = new JTextField();
-		textField_Date_Embauche.setBounds(10, 301, 86, 20);
+		textField_Date_Embauche.setBounds(10, 301, 132, 20);
 		lb_Date_Embauche.setLabelFor(textField_Date_Embauche);
 		textField_Date_Embauche.setColumns(10);
 
 		textField_Sexe = new JTextField();
-		textField_Sexe.setBounds(10, 114, 86, 20);
+		textField_Sexe.setBounds(10, 114, 132, 20);
 		lb_sexe.setLabelFor(textField_Sexe);
 		textField_Sexe.setColumns(10);
 
@@ -189,54 +190,63 @@ public class VueEmployes extends JFrame {
 		contentPane.add(textField_Code);
 		contentPane.add(lb_Quotite);
 		contentPane.add(textField_Quotite);
-		
+
 		JPanel panel_Adresse = new JPanel();
 		panel_Adresse.setBackground(Color.WHITE);
-		panel_Adresse.setBounds(10, 433, 114, 171);
+		panel_Adresse.setBounds(10, 433, 132, 171);
 		contentPane.add(panel_Adresse);
 		panel_Adresse.setLayout(null);
-		
+
 		textField_Rue = new JTextField();
-		textField_Rue.setBounds(10, 40, 86, 20);
+		textField_Rue.setBounds(10, 26, 112, 20);
 		panel_Adresse.add(textField_Rue);
 		textField_Rue.setColumns(10);
-		
+
 		textField_Code_Postal = new JTextField();
 		textField_Code_Postal.setColumns(10);
-		textField_Code_Postal.setBounds(10, 85, 86, 20);
+		textField_Code_Postal.setBounds(10, 67, 112, 20);
 		panel_Adresse.add(textField_Code_Postal);
-		
+
 		textField_Ville = new JTextField();
 		textField_Ville.setColumns(10);
-		textField_Ville.setBounds(10, 132, 86, 20);
+		textField_Ville.setBounds(10, 107, 112, 20);
 		panel_Adresse.add(textField_Ville);
-		
+
 		JLabel lb_Rue = new JLabel("Rue");
-		lb_Rue.setBounds(10, 24, 46, 14);
+		lb_Rue.setBounds(10, 11, 46, 14);
 		panel_Adresse.add(lb_Rue);
-		
+
 		JLabel lb_Cp = new JLabel("Code postal");
-		lb_Cp.setBounds(10, 71, 86, 14);
+		lb_Cp.setBounds(10, 49, 86, 14);
 		panel_Adresse.add(lb_Cp);
-		
+
 		JLabel lb_Ville = new JLabel("Ville");
-		lb_Ville.setBounds(10, 116, 46, 14);
+		lb_Ville.setBounds(10, 95, 46, 14);
 		panel_Adresse.add(lb_Ville);
-		
+
+		JButton btnNewButton = new JButton("Ajouter une adresse");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				formDataAdresse();
+			}
+		});
+		btnNewButton.setBounds(10, 138, 112, 23);
+		panel_Adresse.add(btnNewButton);
+
 		textField_Salaire = new JTextField();
-		textField_Salaire.setBounds(10, 346, 86, 20);
+		textField_Salaire.setBounds(10, 346, 132, 20);
 		contentPane.add(textField_Salaire);
 		textField_Salaire.setColumns(10);
-		
+
 		textField_Fonction = new JTextField();
-		textField_Fonction.setBounds(10, 390, 86, 20);
+		textField_Fonction.setBounds(10, 390, 132, 20);
 		contentPane.add(textField_Fonction);
 		textField_Fonction.setColumns(10);
-		
+
 		JLabel lb_Salaire = new JLabel("Salaire");
 		lb_Salaire.setBounds(10, 332, 46, 14);
 		contentPane.add(lb_Salaire);
-		
+
 		JLabel lb_Fonction = new JLabel("Fonction");
 		lb_Fonction.setBounds(10, 377, 46, 14);
 		contentPane.add(lb_Fonction);
@@ -260,8 +270,26 @@ public class VueEmployes extends JFrame {
 				formatStrToDate(textField_Date_Embauche.getText()));
 
 		controleur.create(em);
+
 		reload();
 
+	}
+
+	public void formDataAdresse() {
+//		int id = Integer.parseInt(textField_input_id.getText());=> Pour recuperer id de l'input
+		int index = table.getSelectedRow();
+		if (table.getSelectionModel().isSelectionEmpty()) {
+			JOptionPane.showMessageDialog(contentPane, "Selectionnez un employé.", "Error", JOptionPane.ERROR_MESSAGE);
+		} else {
+			int id = Integer.parseInt(table.getModel().getValueAt(index, 0).toString());
+			Adresse ad = new Adresse(textField_Rue.getText(), textField_Code_Postal.getText(),
+					textField_Ville.getText());
+
+			controleur.createAdresse(ad, id);
+			JOptionPane.showMessageDialog(contentPane, "Adresse enregistré");
+			reload();
+
+		}
 
 	}
 

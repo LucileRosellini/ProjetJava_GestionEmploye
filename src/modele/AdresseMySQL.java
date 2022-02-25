@@ -21,7 +21,7 @@ public class AdresseMySQL {
 	private final String user = "root";
 	private final String password = "";
 
-	public int addAdresse(Adresse adresse) {
+	public int addAdresse(Adresse adresse, int id) {
 
 		try {
 			Connection con = DriverManager.getConnection(url, user, password);
@@ -30,11 +30,12 @@ public class AdresseMySQL {
 
 
 				PreparedStatement st = con.prepareStatement(
-						"INSERT INTO adresses (rue, postal, ville) VALUES (?, ?, ?)");
+						"INSERT adresses (rue, postal, ville,adresse_employe_id) VALUES (?, ?, ?,?)");
 
 				st.setString(1, adresse.getRue());
 				st.setString(2, adresse.getPostal());
 				st.setString(3, adresse.getVille());
+				st.setInt(4, id);
 				st.executeUpdate();
 
 				st.close();

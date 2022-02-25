@@ -17,6 +17,7 @@ public class Controleur {
 
 	public Controleur() {
 		db = new EmployeMySQL();
+		dbAd = new AdresseMySQL();
 		vueEmployes = new VueEmployes(this);
 		vueEmployes.setVisible(true);
 	}
@@ -71,8 +72,8 @@ public class Controleur {
 		new Controleur();
 	}
 	
-	public void createAdresse(Adresse ad) {
-		dbAd.addAdresse(ad);
+	public void createAdresse(Adresse ad,int id) {
+		dbAd.addAdresse(ad,id);
 	}
 
 	
